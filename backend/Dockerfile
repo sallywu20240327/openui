@@ -4,6 +4,7 @@ COPY pyproject.toml /build/pyproject.toml
 RUN python -m venv /venv && \
     /venv/bin/pip install --upgrade pip setuptools wheel && \
     mkdir -p /build/openui/util && touch /build/README.md
+RUN pip install weave
 RUN /venv/bin/pip install --disable-pip-version-check /build
 
 # Copy the virtualenv into a distroless image
